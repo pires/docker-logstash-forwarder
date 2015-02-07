@@ -23,6 +23,9 @@ RUN cd / && \
   apt-get -y autoremove && \
   apt-get autoclean
 
+# Add configuration file
+ADD logstash-forwarder.conf /logstash-forwarder/logstash-forwarder.conf
+
 # Add runnable scripts
 ADD run_logstash_forwarder.sh /etc/service/logstash-forwarder/run
 RUN chmod u+x /etc/service/logstash-forwarder/run
