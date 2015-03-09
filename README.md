@@ -1,15 +1,15 @@
 
 # logstash-forwarder
-```logstash-forwarder``` Docker image resources for using with [pires/logstash](http://github.com/pires/logstash) but with a [ELK Kubernetes](https://github.com/pires/kubernetes-elk-cluster) twist.
+```logstash-forwarder``` Docker image resources for using with [pires/docker-logstash](http://github.com/pires/logstash) but with a [ELK Kubernetes](https://github.com/pires/kubernetes-elk-cluster) twist.
 
-Here you will find a Dockerfile for assembling a logstash-forwarder container that communicates with Logstash server over secure Lumberjack protocol. I made this so that I could [easily test my ELK cluster on top of Kubernetes](https://github.com/pires/kubernetes-elk-cluster).
-This image can and should be changed to match your needs. Right now, it will only work with ```pires/logstash``` and ELK Kubernetes cluster.
+Here you will find a Dockerfile for assembling a ```logstash-forwarder``` container that communicates with ```logstash``` server over secure Lumberjack protocol. I made this so that I could [easily test my ELK cluster on top of Kubernetes](https://github.com/pires/kubernetes-elk-cluster).
+This image can and should be changed to match your needs. Right now, it will only work with ```pires/docker-logstash``` and ELK Kubernetes cluster.
 
 [runit](http://smarden.org/runit/) will make sure that your service runs on container start-up and supervises it. In case the service dies, ```runit``` brings it back to life. Cool, ain't it?
 
 ## Pre-requisites
 
-* Docker (tested with boot2docker v1.4.1)
+* Docker (tested with boot2docker v1.5.0)
 * Git (optional)
 
 ## Grab it
