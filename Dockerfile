@@ -16,4 +16,4 @@ ADD logstash-forwarder.conf /logstash-forwarder/config/logstash-forwarder.conf
 ADD run_logstash_forwarder.sh /etc/service/logstash-forwarder/run
 RUN chmod u+x /etc/service/logstash-forwarder/run
 
-CMD ["/usr/bin/runsvdir", "-P", "/etc/service"]
+CMD ["/usr/local/bin/runsvdir", "-P", "/etc/service"]
