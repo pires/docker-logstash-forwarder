@@ -1,33 +1,16 @@
-# Ubuntu 14.04
-FROM ubuntu:14.04
+FROM progrium/busybox
+MAINTAINER pjpires@gmail.com
 
-# Me, Myself and I
-MAINTAINER Paulo Pires <pjpires@gmail.com>
-
-# Install Go
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list && \
-  apt-get update && \
-  apt-get -y dist-upgrade && \
-  apt-get -y install git golang runit
-
-# Build logstash-forwarder
-RUN cd / && \
-  git clone git://github.com/elasticsearch/logstash-forwarder.git source && \
-  cd source && \
-  go build && \
-  cd / && \
-  mkdir /logstash-forwarder && \
-  mv source/source /logstash-forwarder/logstash-forwarder && \
-  rm -rf source && \
-  apt-get -y remove git golang && \
-  apt-get -y autoremove && \
-  apt-get autoclean
-
-# Add configuration files
-ADD logstash-forwarder.conf /logstash-forwarder/logstash-forwarder.conf
+ADD binaries/logstash-forwarder /logstash-forwarder/logstash-forwarder
+ADD binaries/runsvdir /usr/local/bin/runsvdir
+ADD binaries/runsv /usr/local/bin/runsv
 
 # Certificates
-VOLUME ["/certs"]
+VOLUME ["/logstash/config"]
+VOLUME ["/logstash/certs"]
+
+# Add configuration files
+ADD logstash-forwarder.conf /logstash-forwarder/config/logstash-forwarder.conf
 
 # Add runnable scripts
 ADD run_logstash_forwarder.sh /etc/service/logstash-forwarder/run
