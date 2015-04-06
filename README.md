@@ -17,5 +17,5 @@ Here you will find a Dockerfile for assembling a `logstash-forwarder` container 
 ## Run it
 
 ```
-docker run --rm -v /path/to/config:/logstash/config -v /path/to/certs:/logstash/certs pires/docker-logstash-forwarder
+docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs pires/docker-logstash-forwarder
 ```

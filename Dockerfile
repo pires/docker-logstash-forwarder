@@ -6,8 +6,8 @@ ADD binaries/runsvdir /usr/local/bin/runsvdir
 ADD binaries/runsv /usr/local/bin/runsv
 
 # Certificates
-VOLUME ["/logstash/config"]
-VOLUME ["/logstash/certs"]
+VOLUME ["/logstash-forwarder/config"]
+VOLUME ["/logstash-forwarder/certs"]
 
 # Add configuration files
 ADD logstash-forwarder.conf /logstash-forwarder/config/logstash-forwarder.conf
