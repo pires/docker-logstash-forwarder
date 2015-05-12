@@ -13,9 +13,26 @@ Here you will find a Dockerfile for assembling a `logstash-forwarder` container 
 ## Pre-requisites
 
 * Docker (tested with boot2docker v1.5.0)
+* Go (optional, if you want to build `logstash-forwarder` binary)
 
 ## Run it
 
 ```
 docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs pires/docker-logstash-forwarder
 ```
+
+## Binaries
+
+### `logstash-forwarder`
+
+The following command will clone [`logstash-forwarder` repo](git://github.com/elasticsearch/logstash-forwarder.git), build `logstash-forwarder` and copy the resulting binary to `binaries` folder.
+
+```
+./build_logstash_forwarder.sh
+```
+
+Now, you just need to rebuild the image.
+
+### `runit`
+
+`runit` binaries should be built according to [official instructions](http://smarden.org/runit/install.html).
