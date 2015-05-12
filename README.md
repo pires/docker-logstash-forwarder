@@ -1,6 +1,6 @@
 
 # logstash-forwarder
-Lean (11MB) `logstash-forwarder` Docker image for using with [pires/docker-logstash](http://github.com/pires/docker-logstash) but with a [ELK Kubernetes](https://github.com/pires/kubernetes-elk-cluster) twist.
+Lean (11MB) `logstash-forwarder` Docker image for using with [pires/docker-logstash](http://github.com/pires/docker-logstash) but with a [ELK Kubernetes](https://github.com/pires/kubernetes-elk-cluster) twist (see `logstash-forwarder.conf`).
 
 Here you will find a Dockerfile for assembling a `logstash-forwarder` container that communicates with `logstash` server over secure Lumberjack protocol. This could be the base for all your Docker images that need `logstash-forwarder`.
 
@@ -18,7 +18,7 @@ Here you will find a Dockerfile for assembling a `logstash-forwarder` container 
 ## Run it
 
 ```
-docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs pires/docker-logstash-forwarder
+docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs pires/docker-logstash-forwarder:0.2
 ```
 
 ## Binaries
