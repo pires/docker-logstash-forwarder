@@ -6,6 +6,8 @@ Here you will find a Dockerfile for assembling a `logstash-forwarder` container 
 
 [runit](http://smarden.org/runit/) will make sure that your service runs on container start-up and supervises it. In case the service dies, `runit` brings it back to life. 
 
+The image is available at [quay.io/pires](https://quay.io/repository/pires/docker-logstash-forwarder).
+
 ## Disclaimer 
 
 `runit` and `logstash-forwarder` binaries are available in `binaries` folder but I recommend to compile them yourself.
@@ -18,7 +20,7 @@ Here you will find a Dockerfile for assembling a `logstash-forwarder` container 
 ## Run it
 
 ```
-docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs pires/docker-logstash-forwarder:0.2
+docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs quay.io/pires/docker-logstash-forwarder:0.2
 ```
 
 ## Binaries
