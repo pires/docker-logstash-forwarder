@@ -20,7 +20,7 @@ The image is available at [quay.io/pires](https://quay.io/repository/pires/docke
 ## Run it
 
 ```
-docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs quay.io/pires/docker-logstash-forwarder:0.2
+docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:/logstash-forwarder/certs quay.io/pires/docker-logstash-forwarder:0.3
 ```
 
 ## Binaries
@@ -28,6 +28,8 @@ docker run --rm -v /path/to/config:/logstash-forwarder/config -v /path/to/certs:
 ### `logstash-forwarder`
 
 The following command will clone [`logstash-forwarder` repo](git://github.com/elasticsearch/logstash-forwarder.git), build `logstash-forwarder` and copy the resulting binary to `binaries` folder.
+
+**ATTENTION:** The images currently available have [support for multiple certificates in the SSL CA chain](https://github.com/elastic/logstash-forwarder/pull/261). This is not supported by the aforementioned build script.
 
 ```
 ./build_logstash_forwarder.sh
@@ -38,3 +40,17 @@ Now, you just need to rebuild the image.
 ### `runit`
 
 `runit` binaries should be built according to [official instructions](http://smarden.org/runit/install.html).
+
+
+## SSL
+
+`logstash` - needs `certificate` and `key`
+`logstash-forwarder` - needs `bundle ca certificate` (which must include `root ca certificate`)
+
+### Self-signed certificate
+
+```
+openssl req -x509 -nodes -newkey rsa:2048 -keyout logstash-forwarder.key -out logstash-forwarder.crt
+```
+
+Be sure to set a `CN` that corresponds to a hostname resolvable by your hosts.
