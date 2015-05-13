@@ -2,6 +2,8 @@
 # logstash-forwarder
 Lean (11MB) `logstash-forwarder` Docker image for using with [pires/docker-logstash](http://github.com/pires/docker-logstash) but with a [ELK Kubernetes](https://github.com/pires/kubernetes-elk-cluster) twist (see `logstash-forwarder.conf`).
 
+[![Docker Repository on Quay.io](https://quay.io/repository/pires/docker-logstash-forwarder/status "Docker Repository on Quay.io")](https://quay.io/repository/pires/docker-logstash-forwarder)
+
 Here you will find a Dockerfile for assembling a `logstash-forwarder` container that communicates with `logstash` server over secure Lumberjack protocol. This could be the base for all your Docker images that need `logstash-forwarder`.
 
 [runit](http://smarden.org/runit/) will make sure that your service runs on container start-up and supervises it. In case the service dies, `runit` brings it back to life. 
