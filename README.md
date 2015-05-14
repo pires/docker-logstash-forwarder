@@ -1,5 +1,5 @@
 
-# logstash-forwarder
+# docker-logstash-forwarder
 Lean (11MB) `logstash-forwarder` Docker image for using with [pires/docker-logstash](http://github.com/pires/docker-logstash) but with a [ELK Kubernetes](https://github.com/pires/kubernetes-elk-cluster) twist (see `logstash-forwarder.conf`).
 
 [![Docker Repository on Quay.io](https://quay.io/repository/pires/docker-logstash-forwarder/status "Docker Repository on Quay.io")](https://quay.io/repository/pires/docker-logstash-forwarder)
