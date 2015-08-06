@@ -43,8 +43,8 @@ Now, you just need to rebuild the image.
 
 ## SSL self-signed certificates
 
-`logstash` - needs `certificate` and `key`
-`logstash-forwarder` - needs `bundle ca certificate` (which must include `root ca certificate`)
+* `logstash` - needs `certificate` and `key`
+* `logstash-forwarder` - needs `bundle ca certificate` (which must include `root ca certificate`)
 
 ```
 openssl req -x509 -nodes -newkey rsa:2048 -keyout logstash-forwarder.key -out logstash-forwarder.crt
